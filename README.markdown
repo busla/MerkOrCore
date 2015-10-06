@@ -43,9 +43,32 @@ The MerkOrCore API and command line interface can be used to query this data
 
 ## Getting started
 *Note that MerkOrCore is developed and tested under Mac OS X only, please report any problems with other platforms!*
+
+### Java
+Download the Java JDK from there: http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
 ### Redis
-The MerkOr data is stored in Redis format. Redis is available at http://redis.io (installation instructions under http://redis.io/download).
-The Redis data is included in this package as `dump.rdb.bz2`.
+The MerkOr data is stored in Redis format. The Redis data is included in this package as `dump.rdb.bz2`.
+
+Redis is available at http://redis.io (installation instructions under http://redis.io/download). Homebrew users can install with `$ brew install redis`.
+
+Extract `dump.rdb.bz2` using the terminal or double click the file in Finder (OSX). To load the database file you add `redis.config` to your projects root with the following content:
+
+```
+# The filename where to dump the DB
+dbfilename dump.rdb
+
+# The working directory.
+#
+# The DB will be written inside this directory, with the filename specified
+# above using the 'dbfilename' configuration directive.
+# 
+# Also the Append Only File will be created inside this directory.
+# 
+# Note that you must specify a directory here, not a file name.
+dir /path/to/merkor/
+```
+
 After you have installed Redis, unpacked and loaded the MerkOr data, you can try it out directly in Redis command line interface, (in the Redis directory start `src/redis-cli`), for example:
 
     redis 127.0.0.1:6379> smembers merkor_is_lemma_lampi
