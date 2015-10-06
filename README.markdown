@@ -79,6 +79,10 @@ After you have installed Redis, unpacked and loaded the MerkOr data, you can try
     3) "wordclass"
     4) "noun"
 
+Run the Redis server with the following command in the project root directory:
+
+`redis-server ./redis.config`
+
 This assures you that the MerkOr data is loaded but you don't have to study redis-cli to use the MerkOrCore API. For those interested in inspecting the data directly, for example with redis-cli, the structure of the Redis data is shown in the file `merkor_redis_structure.txt`.
 
 ### MerkOrCore API
